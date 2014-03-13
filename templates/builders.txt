@@ -1,0 +1,15 @@
+<builders>
+% if copyArtifact:
+  <hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@1.27">
+    <project>${copyArtifact['project']}</project>
+    <filter>${copyArtifact['filter']}</filter>
+    <target>${copyArtifact['target']}</target>
+    <selector class="hudson.plugins.copyartifact.TriggeredBuildSelector">
+      <fallbackToLastSuccessful>${copyArtifact['lastSuccessful']}</fallbackToLastSuccessful>
+    </selector>
+  </hudson.plugins.copyartifact.CopyArtifact>
+% endif
+  <hudson.tasks.Shell>
+    <command>${build_command}</command>
+  </hudson.tasks.Shell>
+</builders>

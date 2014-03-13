@@ -1,0 +1,12 @@
+<buildWrappers>
+  <%include file="buildWrappers/preBuildCleanup.txt"/>
+  <%include file="buildWrappers/buildTimeoutWrapper.txt"/>
+
+  <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.3.1">
+    <colorMapName>xterm</colorMapName>
+  </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+
+  <%include file="buildWrappers/envInject.txt"/>
+
+</buildWrappers>
+

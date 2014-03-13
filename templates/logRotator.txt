@@ -1,0 +1,25 @@
+  <logRotator class="hudson.tasks.LogRotator">
+    % if daysToKeep:
+      <daysToKeep>${daysToKeep}</daysToKeep>
+    % else:
+      <daysToKeep>-1</daysToKeep>
+    % endif
+
+    % if numOfJobsToKeep:
+      <numToKeep>${numOfJobsToKeep}</numToKeep>
+    % else:
+      <numToKeep>50</numToKeep>
+    % endif
+
+    % if artifactDaysToKeep:
+      <artifactDaysToKeep>${artifactDaysToKeep}</artifactDaysToKeep>
+    % else:
+      <artifactDaysToKeep>-1</artifactDaysToKeep>
+    % endif
+
+    % if artifactNumToKeep:
+      <artifactNumToKeep>${artifactNumToKeep}</artifactNumToKeep>
+    % else:
+      <artifactNumToKeep>-1</artifactNumToKeep>
+    % endif
+  </logRotator>

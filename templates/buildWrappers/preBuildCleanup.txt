@@ -1,0 +1,4 @@
+  <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.16">
+    <deleteDirs>false</deleteDirs>
+    <cleanupParameter></cleanupParameter>
+  </hudson.plugins.ws__cleanup.PreBuildCleanup>

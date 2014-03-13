@@ -1,0 +1,11 @@
+% if junitArchiver:
+  <hudson.tasks.junit.JUnitResultArchiver>
+    <testResults>${junitArchiver['testResults']}</testResults>
+    <keepLongStdio>${junitArchiver['keepLongStdio']}</keepLongStdio>
+    <testDataPublishers>
+      <de.esailors.jenkins.teststability.StabilityTestDataPublisher plugin="test-stability@1.0"/>
+    </testDataPublishers>
+  </hudson.tasks.junit.JUnitResultArchiver>
+% endif
+
+

@@ -1,0 +1,6 @@
+% if artifactArchiver:
+  <hudson.tasks.ArtifactArchiver>
+    <artifacts>${artifactArchiver['artifacts']}</artifacts>
+    <latestOnly>${artifactArchiver['latestOnly']}</latestOnly>
+  </hudson.tasks.ArtifactArchiver>
+% endif

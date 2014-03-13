@@ -1,0 +1,10 @@
+% if buildTimeoutWrapper:
+  <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.11">
+    <timeoutMinutes>${buildTimeoutWrapper['timeoutMinutes']}</timeoutMinutes>
+    <failBuild>true</failBuild>
+    <writingDescription>false</writingDescription>
+    <timeoutPercentage>0</timeoutPercentage>
+    <timeoutType>absolute</timeoutType>
+    <timeoutMinutesElasticDefault>3</timeoutMinutesElasticDefault>
+  </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+% endif

@@ -1,0 +1,6 @@
+% if fingerprinter:
+  <hudson.tasks.Fingerprinter>
+    <targets>${fingerprinter['targets']}</targets>
+    <recordBuildArtifacts>${fingerprinter['recordBuildArtifacts']}</recordBuildArtifacts>
+  </hudson.tasks.Fingerprinter>
+% endif

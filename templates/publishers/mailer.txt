@@ -1,0 +1,7 @@
+% if mailer:
+  <hudson.tasks.Mailer plugin="mailer@1.5">
+    <recipients>${mailer['recipients']}</recipients>
+    <dontNotifyEveryUnstableBuild>${mailer['mailEveryUnstable']}</dontNotifyEveryUnstableBuild>
+    <sendToIndividuals>${mailer['sendToIndividuals']}</sendToIndividuals>
+  </hudson.tasks.Mailer>
+% endif

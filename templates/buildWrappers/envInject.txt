@@ -1,0 +1,8 @@
+% if envInject:
+  <EnvInjectBuildWrapper plugin="envinject@1.87">
+    <info>
+      <propertiesContent>${envInject['propertiesContent']}</propertiesContent>
+      <loadFilesFromMaster>false</loadFilesFromMaster>
+    </info>
+  </EnvInjectBuildWrapper>
+% endif

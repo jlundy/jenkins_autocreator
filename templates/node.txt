@@ -1,0 +1,27 @@
+% if assignedNode:
+  <assignedNode>${assignedNode}</assignedNode>
+% else:
+  <assignedNode/>
+% endif
+<canRoam>false</canRoam>
+<disabled>false</disabled>
+
+% if blockOnDownstream:
+  <blockBuildWhenDownstreamBuilding>${blockOnDownstream}</blockBuildWhenDownstreamBuilding>
+% else:
+  <blockBuildWhenDownstreamBuilding>False</blockBuildWhenDownstreamBuilding>
+% endif
+
+% if blockOnUpstream:
+  <blockBuildWhenUpstreamBuilding>${blockOnUpstream}</blockBuildWhenUpstreamBuilding>
+% else:
+  <blockBuildWhenUpstreamBuilding>False</blockBuildWhenUpstreamBuilding>
+% endif
+
+<triggers/>
+
+% if concurrentBuild:
+  <concurrentBuild>${concurrentBuild}</concurrentBuild>
+% else:
+  <concurrentBuild>False</concurrentBuild>
+% endif

@@ -1,0 +1,7 @@
+<publishers>
+<%include file="publishers/artifactArchiver.txt"/>
+<%include file="publishers/junitArchiver.txt"/>
+<%include file="publishers/fingerprinter.txt"/>
+<%include file="publishers/mailer.txt"/>
+<%include file="publishers/ircBot.txt"/>
+</publishers>

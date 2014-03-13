@@ -1,0 +1,18 @@
+ % if ircBot:
+ <hudson.plugins.ircbot.IrcPublisher plugin="ircbot@2.23">
+    <targets>
+      <hudson.plugins.im.GroupChatIMMessageTarget plugin="instant-messaging@1.25">
+        <name>${ircBot['targets']['channel']}</name>
+        <notificationOnly>${ircBot['targets']['notificationOnly']}</notificationOnly>
+      </hudson.plugins.im.GroupChatIMMessageTarget>
+    </targets>
+    <strategy>${ircBot['strategy']}</strategy>
+    <notifyOnBuildStart>${ircBot['notifyOnBuildStart']}</notifyOnBuildStart>
+    <notifySuspects>${ircBot['notifySuspects']}</notifySuspects>
+    <notifyCulprits>${ircBot['notifyCulprits']}</notifyCulprits>
+    <notifyFixers>${ircBot['notifyFixers']}</notifyFixers>
+    <notifyUpstreamCommitters>${ircBot['notifyUpstreamCommitters']}</notifyUpstreamCommitters>
+    <buildToChatNotifier class="hudson.plugins.im.build_notify.SummaryOnlyBuildToChatNotifier" plugin="instant-messaging@1.25"/>
+    <matrixMultiplier>${ircBot['matrixMultiplier']}</matrixMultiplier>
+    </hudson.plugins.ircbot.IrcPublisher>
+% endif
