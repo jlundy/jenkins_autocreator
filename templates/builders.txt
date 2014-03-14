@@ -12,4 +12,7 @@
   <hudson.tasks.Shell>
     <command>${build_command}</command>
   </hudson.tasks.Shell>
+% if newPlugin:
+  <xml>
+% endif
 </builders>

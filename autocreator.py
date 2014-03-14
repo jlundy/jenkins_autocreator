@@ -38,6 +38,8 @@ def getJobsToBuild(dataDirectory):
 # Add logging and a verbosity option.  No output right now about what is happening
 # Maybe support subdirectories of different "types" so something like acceptance/staging, or acceptance/performance, etc
 # Overwrite the job name from within the yml
+# Hash the yml and store it locally so we can tell if a job has changed so we dont have to rebuild it
+
 
 cliArgs = parse_args()
 jobType = cliArgs.jobType
