@@ -1,0 +1,18 @@
+
+numOfJobsToKeep: 100
+assignedNode: acceptance
+blockOnDownstream: "False"
+ircBot:
+  targets:
+    channel: "#reach-dev"
+    notificationOnly: "True"
+  strategy: FAILURE_AND_FIXED
+  notifyOnBuildStart: "False"
+  notifySuspects: "False"
+  notifyCulprits: "False"
+  notifyFixers: "False"
+  notifyUpstreamCommitters: "False"
+  matrixMultiplier: ONLY_CONFIGURATIONS
+
+
+

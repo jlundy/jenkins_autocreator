@@ -6,5 +6,6 @@ build_command: |
                # Uncompress the qe dir
                tar -zxf qe.tar.gz
                cd qetest/pinot/spec
-               ./jenkins_runner.sh usage:usage 
+               ./jenkins_runner.sh usage:usage
 
+job_description: "Owner: Platypus"

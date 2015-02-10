@@ -10,5 +10,7 @@ build_command: |
 
 envInject:
   propertiesContent:  |
-                      REACH_RETRY=1 
+                      REACH_RETRY=1
                       REACH_TIMEOUT=180
+
+job_description: "Owner: Blue"

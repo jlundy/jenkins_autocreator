@@ -1,0 +1,40 @@
+numOfJobsToKeep: 750
+assignedNode: acceptance
+blockOnDownstream: "True"
+copyArtifact:
+<%
+  import os
+  if os.environ.get('UPSTREAM_JOB') != None:
+    upstreamJob = os.environ['UPSTREAM_JOB']
+  else:
+    upstreamJob = "Reach_Acceptance"
+%>
+  project: ${upstreamJob}
+  filter: qe.tar.gz
+  target: ""
+  buildStatusSelector: triggered
+  lastSuccessful: "True"
+artifactArchiver:
+  artifacts: "qetest/pinot/spec/screenshots/*, **/spec/reports/SPEC-*.xml"
+  latestOnly: "False"
+junitArchiver:
+  testResults: "**/spec/reports/SPEC-*.xml"
+  keepLongStdio: "False"
+fingerprinter:
+  targets: "**/spec/reports/SPEC-*.xml"
+  recordBuildArtifacts: "True"
+ircBot:
+  targets:
+    channel: "#reach-tests"
+    notificationOnly: "True"
+  strategy: FAILURE_AND_FIXED
+  notifyOnBuildStart: "False"
+  notifySuspects: "False"
+  notifyCulprits: "False"
+  notifyFixers: "False"
+  notifyUpstreamCommitters: "False"
+  matrixMultiplier: ONLY_CONFIGURATIONS
+job_description: Acceptance tests for Reach
+buildTimeoutWrapper:
+  timeoutMinutes: 10
+

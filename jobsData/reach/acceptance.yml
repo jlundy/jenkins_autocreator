@@ -1,0 +1,61 @@
+<%include file="trigger_defaults.yml"/>
+<%include file="default.yml"/>
+
+job_description: Bundles the results of acceptance tests.  Blocks deployments.  Tests that run here should be completely rock solid!
+artifactNumToKeep: 10
+buildParams:
+  paramName: DIST_REV
+  paramValue: "\"You have failed miserably :)"
+  paramDesc:  The github revision to run tests at.  Requires a revision to be passed from upstream job
+scm:
+  gitURL: git@github.com:racker/reach.git
+  gitBranch: $DIST_REV
+copyArtifact:
+<%
+  import os
+  if os.environ.get('UPSTREAM_JOB') != None:
+    upstreamJob = os.environ['UPSTREAM_JOB']
+  else:
+    upstreamJob = "Bus_Deploy_Preprod_DFW"
+%>
+  project: ${upstreamJob}
+  filter: reach-bundle*
+  target: ""
+  buildStatusSelector: status
+  lastStable: "True"
+build_command: |
+               #!/bin/sh
+               tar -zcvf qe.tar.gz qetest
+aggregatedTestResults:
+  failedBuilds: "true"
+artifactArchiver:
+  artifacts: reach-bundle*$DIST_REV*, reach-bundle-git-revision, qe.tar.gz
+  latestOnly: False
+joinTrigger:
+  projects: "Reach_Production_Deploy_OK"
+  triggerCondition: SUCCESS
+  triggerWithNoParameters: "false"
+  evenIfDownstreamUnstable: "false"
+parameterizedTrigger:
+<%
+  from os import environ
+  from os import walk
+
+  files = []
+  notAutocreatedProjects = ", Production_Artifacts"
+
+  if environ.get('TESTS_DIR') != None:
+    testsDir = environ['TESTS_DIR']
+  else:
+    testsDir = "jobsData/acceptance"
+
+  for (dirpath, dirnames, filenames) in walk(testsDir):
+    files.extend(filenames)
+
+  projects = [ "acceptance_" + fileName.replace(".yml", "") for fileName in files if "default" not in fileName ]
+  projects = ", ".join(projects)
+  projects = projects + notAutocreatedProjects
+%>
+  projects: ${projects}
+  triggerCondition: SUCCESS
+  triggerWithNoParameters: "false"

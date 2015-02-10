@@ -9,4 +9,9 @@ build_command: |
                ./jenkins_runner.sh monitoring:remote_alarm
 
 envInject:
-  propertiesContent:  REACH_TIMEOUT=45  
+  propertiesContent:  REACH_TIMEOUT=90
+
+buildTimeoutWrapper:
+  timeoutMinutes: 15
+
+job_description: "Owner: Funky"

@@ -7,3 +7,8 @@ build_command: |
                tar -zxf qe.tar.gz
                cd qetest/pinot/spec
                ./jenkins_runner.sh database:ORD:db_backup
+
+buildTimeoutWrapper:
+  timeoutMinutes: 18
+
+job_description: "Owner: Funky"

@@ -1,0 +1,14 @@
+% if parameterizedTrigger:
+<hudson.plugins.parameterizedtrigger.BuildTrigger plugin="parameterized-trigger@2.24">
+  <configs>
+    <hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+      <configs>
+        <hudson.plugins.parameterizedtrigger.CurrentBuildParameters/>
+      </configs>
+      <projects>${parameterizedTrigger['projects']}</projects>
+      <condition>${parameterizedTrigger['triggerCondition']}</condition>
+      <triggerWithNoParameters>${parameterizedTrigger['triggerWithNoParameters']}</triggerWithNoParameters>
+    </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+  </configs>
+</hudson.plugins.parameterizedtrigger.BuildTrigger>
+% endif

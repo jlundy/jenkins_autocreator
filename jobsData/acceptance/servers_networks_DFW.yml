@@ -6,9 +6,11 @@ build_command: |
                # Uncompress the qe dir
                tar -zxf qe.tar.gz
                cd qetest/pinot/spec
-               ./jenkins_runner.sh networks:DFW:networks 
+               ./jenkins_runner.sh networks:DFW:networks
 
 envInject:
   propertiesContent: |
                      REACH_TIMEOUT=600
-                     REACH_RETRY=1 
+                     REACH_RETRY=1
+
+job_description: "Owner: Blue"

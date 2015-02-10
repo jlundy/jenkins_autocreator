@@ -1,5 +1,12 @@
-numOfJobsToKeep: 150
-assignedNode: acceptance
+numOfJobsToKeep: 45 
+<%
+  import os
+  if os.environ.get('SLAVE_LABEL') != None:
+    assignedNode = os.environ['SLAVE_LABEL']
+  else:
+    assignedNode = "acceptance"
+%>
+assignedNode: ${assignedNode}
 blockOnDownstream: "True"
 copyArtifact:
 <%
@@ -11,7 +18,8 @@ copyArtifact:
 %>
   project: ${upstreamJob}
   filter: qe.tar.gz
-  target:
+  target: ""
+  buildStatusSelector: triggered
   lastSuccessful: "True"
 artifactArchiver:
   artifacts: "qetest/pinot/spec/screenshots/*, **/spec/reports/SPEC-*.xml"
@@ -33,7 +41,6 @@ ircBot:
   notifyFixers: "False"
   notifyUpstreamCommitters: "False"
   matrixMultiplier: ONLY_CONFIGURATIONS
-job_description: Acceptance tests for Reach
+job_description: This suite is not currently associated with a team
 buildTimeoutWrapper:
   timeoutMinutes: 10
-

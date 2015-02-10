@@ -10,3 +10,8 @@ build_command: |
 
 envInject:
   propertiesContent:  REACH_TIMEOUT=60
+
+buildTimeoutWrapper:
+  timeoutMinutes: 15
+
+job_description: "Owner: Funky"

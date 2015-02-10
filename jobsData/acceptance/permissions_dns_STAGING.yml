@@ -1,0 +1,14 @@
+<%include file="acceptance_defaults.yml"/>
+<%include file="default.yml"/>
+
+build_command: |
+               #!/bin/bash
+               # Uncompress the qe dir
+               tar -zxf qe.tar.gz
+               cd qetest/pinot/spec
+               ./jenkins_runner.sh permissions:STAGING:dns
+
+buildTimeoutWrapper:
+  timeoutMinutes: 25
+
+job_description: "Owner: Fluffy"

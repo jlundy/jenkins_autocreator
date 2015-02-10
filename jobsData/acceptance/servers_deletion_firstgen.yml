@@ -9,4 +9,6 @@ build_command: |
                ./jenkins_runner.sh servers:FirstGen:delete
 
 envInject:
-  propertiesContent: REACH_RETRY=1 
+  propertiesContent: REACH_RETRY=1
+
+job_description: "Owner: Blue"

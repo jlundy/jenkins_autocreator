@@ -1,1 +1,21 @@
+% if scm:
+<scm class="hudson.plugins.git.GitSCM" plugin="git@2.0.3">
+  <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>${scm['gitURL']}</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>${scm['gitBranch']}</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+  <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+  <submoduleCfg class="list"/>
+  <extensions/>
+</scm>
+<scmCheckoutRetryCount>3</scmCheckoutRetryCount>
+% else:
 <scm class="hudson.scm.NullSCM"/>
+% endif

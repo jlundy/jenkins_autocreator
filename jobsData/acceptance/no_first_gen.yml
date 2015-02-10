@@ -7,3 +7,8 @@ build_command: |
                tar -zxf qe.tar.gz
                cd qetest/pinot/spec
                ./jenkins_runner.sh no_first_gen:no_first_gen
+
+buildTimeoutWrapper:
+  timeoutMinutes: 15
+
+job_description: "Owner: Blue"

@@ -8,3 +8,4 @@ build_command: |
                cd qetest/pinot/spec
                ./jenkins_runner.sh region_settings:files
 
+job_description: "Owner: Platypus"

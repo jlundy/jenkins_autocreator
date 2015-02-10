@@ -1,0 +1,11 @@
+<%include file="acceptance_defaults.yml"/>
+<%include file="default.yml"/>
+
+build_command: |
+               #!/bin/bash
+               # Uncompress the qe dir
+               tar -zxf qe.tar.gz
+               cd qetest/pinot/spec
+               ./jenkins_runner.sh login:PREPROD_SYD:login
+
+job_description: "Owner: Yellow"

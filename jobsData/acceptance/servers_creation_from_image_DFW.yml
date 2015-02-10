@@ -9,4 +9,6 @@ build_command: |
                ./jenkins_runner.sh servers:DFW:servers_creation_from_image
 
 envInject:
-  propertiesContent: REACH_RETRY=1 
+  propertiesContent: REACH_RETRY=1
+
+job_description: "Owner: Blue"

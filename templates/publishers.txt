@@ -4,4 +4,7 @@
 <%include file="publishers/fingerprinter.txt"/>
 <%include file="publishers/mailer.txt"/>
 <%include file="publishers/ircBot.txt"/>
+<%include file="publishers/aggregatedTestResults.txt"/>
+<%include file="publishers/joinTrigger.txt"/>
+<%include file="publishers/parameterizedTrigger.txt"/>
 </publishers>

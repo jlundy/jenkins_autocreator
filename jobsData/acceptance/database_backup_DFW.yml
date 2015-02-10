@@ -8,3 +8,7 @@ build_command: |
                cd qetest/pinot/spec
                ./jenkins_runner.sh database:DFW:db_backup
 
+buildTimeoutWrapper:
+  timeoutMinutes: 18
+
+job_description: "Owner: Funky"

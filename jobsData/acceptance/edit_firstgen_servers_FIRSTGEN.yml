@@ -10,3 +10,8 @@ build_command: |
 
 envInject:
   propertiesContent:  REACH_RETRY=1
+
+buildTimeoutWrapper:
+  timeoutMinutes: 20
+
+job_description: "Owner: Blue"

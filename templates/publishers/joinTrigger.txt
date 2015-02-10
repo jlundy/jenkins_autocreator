@@ -1,0 +1,20 @@
+% if joinTrigger:
+<join.JoinTrigger plugin="join@1.15">
+  <joinProjects/>
+  <joinPublishers>
+    <hudson.plugins.parameterizedtrigger.BuildTrigger plugin="parameterized-trigger@2.24">
+      <configs>
+        <hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.CurrentBuildParameters/>
+          </configs>
+          <projects>${joinTrigger['projects']}</projects>
+          <condition>${joinTrigger['triggerCondition']}</condition>
+          <triggerWithNoParameters>${joinTrigger['triggerWithNoParameters']}</triggerWithNoParameters>
+        </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+      </configs>
+    </hudson.plugins.parameterizedtrigger.BuildTrigger>
+  </joinPublishers>
+  <evenIfDownstreamUnstable>${joinTrigger['evenIfDownstreamUnstable']}</evenIfDownstreamUnstable>
+</join.JoinTrigger>
+% endif

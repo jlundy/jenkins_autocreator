@@ -6,8 +6,9 @@ build_command: |
                # Uncompress the qe dir
                tar -zxf qe.tar.gz
                cd qetest/pinot/spec
-               ./jenkins_runner.sh servers:DFW:performance
+               ./jenkins_runner.sh servers:DFW:servers_resize_performance
 
 envInject:
-  propertiesContent: REACH_RETRY=120
+  propertiesContent: REACH_TIMEOUT=120
 
+job_description: "Owner: Blue"

@@ -4,15 +4,18 @@
     <project>${copyArtifact['project']}</project>
     <filter>${copyArtifact['filter']}</filter>
     <target>${copyArtifact['target']}</target>
+    % if copyArtifact['buildStatusSelector'] == "triggered":
     <selector class="hudson.plugins.copyartifact.TriggeredBuildSelector">
       <fallbackToLastSuccessful>${copyArtifact['lastSuccessful']}</fallbackToLastSuccessful>
     </selector>
+    % elif copyArtifact['buildStatusSelector'] == "status":
+    <selector class="hudson.plugins.copyartifact.StatusBuildSelector">
+      <stable>${copyArtifact['lastStable']}</stable>
+    </selector>
+    % endif
   </hudson.plugins.copyartifact.CopyArtifact>
 % endif
   <hudson.tasks.Shell>
     <command>${build_command}</command>
   </hudson.tasks.Shell>
-% if newPlugin:
-  <xml>
-% endif
 </builders>

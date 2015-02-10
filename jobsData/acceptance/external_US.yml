@@ -6,4 +6,6 @@ build_command: |
                # Uncompress the qe dir
                tar -zxf qe.tar.gz
                cd qetest/pinot/spec
-               ./jenkins_runner.sh external
+               ./jenkins_runner.sh external:US:external
+
+job_description: "Owner: Platypus"

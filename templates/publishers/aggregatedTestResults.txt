@@ -1,0 +1,5 @@
+% if aggregatedTestResults:
+ <hudson.tasks.test.AggregatedTestResultPublisher>
+   <includeFailedBuilds>${aggregatedTestResults['failedBuilds']}</includeFailedBuilds>
+ </hudson.tasks.test.AggregatedTestResultPublisher>
+% endif

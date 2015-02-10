@@ -9,4 +9,6 @@ build_command: |
                ./jenkins_runner.sh autoscale:DFW:details
 
 buildTimeoutWrapper:
-  timeoutMinutes: 15
+  timeoutMinutes: 20
+
+job_description: "Owner: Fluffy"

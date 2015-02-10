@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 from mako.template import Template
 from mako.lookup import TemplateLookup
 import argparse
@@ -18,6 +18,8 @@ def parse_args():
   parser.add_argument("-url", "--jenkinsURL", help="The URL of your jenkins master", required=True)
   parser.add_argument("-a", "--append", help="Optional parameter that will append the value to the end of your job names")
   parser.add_argument("-http", "--http", help="Use this to use http instead of https.  Defaults to https", action="store_true", default=False)
+  parser.add_argument("-u", "--username", help="Optional paramater for the username to authenticate against jenkins", required=False, default=None)
+  parser.add_argument("-p", "--password", help="Optional paramater for the password to authenticate against jenkins", required=False, default=None)
   args = parser.parse_args()
   return args
 
@@ -57,13 +59,22 @@ else:
 
 jobsLoc = dataLoc + "/" + jobType
 dataLoc = [dataLoc, jobsLoc]
-jenkins = JenkinsUtils(cliArgs.jenkinsURL, connectionType)
+jenkins = JenkinsUtils(cliArgs.jenkinsURL, connectionType, cliArgs.username, cliArgs.password)
 
 for job in getJobsToBuild(jobsLoc):
   jobData = serveTemplate(job, dataLoc)
-  jobYML = yaml.load(jobData)
+  try:
+    jobYML = yaml.load(jobData)
+  except:
+    print "Yaml failed to parse for file: " + job
+    continue    
   jobName = ((jobType + "_" + job).replace(".yml", "") + appendJobName)
+  print "\nProcessing the template:  " + jobName
   jenkinsXML = serveTemplate('jenkins.txt', 'templates', **jobYML)
-  jenkins.post_jenkins_job(jenkinsXML, jobName)
+  print "Creating job: " + jobName
+  response = jenkins.post_jenkins_job(jenkinsXML, jobName)
+  if response.status != 200:
+    print "Unable to create job:  " + jobName
+    print "   Response code received: " + str(response.status) 
 
 

@@ -12,3 +12,5 @@ envInject:
   propertiesContent:  |
                       REACH_RETRY=1
                       REACH_TIMEOUT=120
+
+job_description: "Owner: Blue"
